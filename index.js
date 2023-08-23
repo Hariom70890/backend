@@ -3,8 +3,8 @@
 
 const express = require("express");
 const { connection } = require("./db");
-const { userRouter } = require("./Routes/users.routes");
-const { doctorRouter } = require("./Routes/doctor.routes");
+const { userRouter } = require("./routes/users.routes");
+const { doctorRouter } = require("./routes/doctor.routes");
 require("dotenv").config();
 const cors = require("cors");
 const app = express();
