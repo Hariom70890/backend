@@ -19,8 +19,8 @@ userRouter.post("/register", async (req, res) => {
             } else {
                const user = new UserModel({
                   name,
-                  email,                  
-                  password: hash
+                  email,
+                  password: hash,
                });
                await user.save();
                res.status(200).json({ msg: "New User Has Added" });
@@ -51,13 +51,13 @@ userRouter.post("/login", async (req, res) => {
                });
             } else {
                console.log(err);
-               alert("Invalid User")
+               alert("Invalid User");
                res.status(200).json({ msg: "Wrong Credentials", err: err });
             }
          });
       }
    } catch (error) {
-      alert("Wrong Credential")
+      alert("Wrong Credential");
       res.status(400).json({ error: error.message });
    }
 });

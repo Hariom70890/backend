@@ -5,12 +5,12 @@ const doctorSchema = mongoose.Schema(
    {
       name: String,
       image: String,
-      specialization : String,
+      specialization: String,
       experience: Number,
       location: String,
-      date : String,
-      slots : Number,
-      fee : Number
+      date: String,
+      slots: Number,
+      fee: Number,
    },
    {
       versionKey: false,
