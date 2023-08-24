@@ -1,18 +1,16 @@
 const jwt = require("jsonwebtoken");
-const { BlacklistingModel } = require("../Models/blacklist.model");
+// const { BlacklistingModel } = require("../model/blacklist.model");
 
 let authentication = async (req, res, next) => {
    let token = req.headers.authorization.split(" ")[1];
-   let balcktoken = await BlacklistingModel.find({ btoken: token });
-   if (balcktoken.length > 0) {
-      res.status(200).send({ msg: "Please login agian !" });
-   }
+  
    if (token) {
-      let decoded = jwt.verify(token, "masai");
+      let decoded = jwt.verify(token, process.env.secretKey1);
       // console.log(decoded)
       if (decoded.userID) {
          req.body.userID = decoded.userID;
-         //  console.log(req.body);
+         req.body.username = decoded.user
+         //  console.log(decoded);
          next();
       } else {
          res.status(400).send({ msg: "Please login !" });
