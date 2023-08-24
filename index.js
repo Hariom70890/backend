@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use("/api", api);
 
-// app.use("/doctor", doctorRouter);
+app.use("/doctor", doctorRouter);
 
 app.listen(process.env.port, async () => {
    try {
