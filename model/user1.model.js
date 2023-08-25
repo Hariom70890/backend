@@ -34,6 +34,6 @@ const blogSchema = mongoose.Schema({
 });
 
 // Model
-const UserModel = mongoose.model("user1", userSchema);
+const UserModel1 = mongoose.model("user1", userSchema);
 const BlogModel = mongoose.model("blog",blogSchema)
-module.exports = { UserModel,BlogModel };
+module.exports = { UserModel1,BlogModel };

@@ -1,6 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-const { UserModel, BlogModel } = require("../model/user1.model");
+const {  BlogModel, UserModel1 } = require("../model/user1.model");
 const jwt = require("jsonwebtoken");
 const { blackList } = require("../blackList");
 const {authentication} = require("../middleware/authentication.middleware")
@@ -10,7 +10,7 @@ require("dotenv").config();
 api.post("/register", async (req, res) => {
    const { avatar, name, email, password } = req.body;
    try {
-      const user = await UserModel.findOne({ email, name });
+      const user = await UserModel1.findOne({ email, name });
       if (user) {
          res.status(200).json({ msg: "User already exist, please login" });
       } else {
@@ -18,7 +18,7 @@ api.post("/register", async (req, res) => {
             if (err) {
                res.status(400).json({ error: err.message });
             } else {
-               const user = new UserModel({
+               const user = new UserModel1({
                   avatar,
                   name,
                   email,
@@ -37,7 +37,7 @@ api.post("/register", async (req, res) => {
 api.post("/login", async (req, res) => {
    const { email, password } = req.body;
    try {
-      const user = await UserModel.findOne({ email });
+      const user = await UserModel1.findOne({ email });
       if (user) {
          //   console.log(user.password)
          bcrypt.compare(password, user.password, (err, result) => {
