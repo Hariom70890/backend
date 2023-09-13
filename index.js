@@ -117,7 +117,7 @@ app.get("/",(req,res)=>{
     }
   });
   app.post('/check', async (req, res) => {
-    const { code,  toLanguage } = req.body;
+    const { code } = req.body;
   
     if (!code) {
       return res.status(400).json({ error: 'Invalid request. Please provide code, fromLanguage, and toLanguage.' });
