@@ -95,8 +95,8 @@ app.get("/",(req,res)=>{
       const response = await axios.post(
         'https://api.openai.com/v1/engines/text-davinci-003/completions',
         {
-          prompt: `Debug this ${code}`,
-          max_tokens: 150,
+          prompt: `${code} debug this code and provide what is write  what we have to change or put`,
+          max_tokens: 500,
         },
         {
           headers: {
@@ -129,8 +129,8 @@ app.get("/",(req,res)=>{
       const response = await axios.post(
         'https://api.openai.com/v1/engines/text-davinci-003/completions',
         {
-          prompt: `Check the quality of the given ${code}. Evaluate the code for best practices, readability, and potential issues. Provide feedback on areas that need improvement and suggest possible optimizations. Consider factors such as naming conventions, code structure, variable usage, and error handling. Make recommendations for enhancing the code's overall quality and performance. and convert the ${code} into ${toLanguage}`,
-          max_tokens: 150,
+          prompt: `${code} provide me a quality check for this code with the percentage and some details`,
+          max_tokens: 1500,
         },
         {
           headers: {
